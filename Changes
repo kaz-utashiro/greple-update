@@ -2,5 +2,5 @@ Revision history for Perl extension App-Greple-update
 
 {{$NEXT}}
 
-    - original version
+    - spun off from App::Greple::subst
 
