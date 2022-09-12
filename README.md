@@ -28,14 +28,13 @@ uppercase.
     greple -Mupdate '\w+' --cm 'sub{uc}' --update file
 
 Above is a very simple example but you can implement arbitrarily
-complex convert function in conjunction with other various **greple**
-options.
+complex function in conjunction with other various **greple** options.
 
 You can check how the file will be edited by **--diff** option.
 
     greple -Mupdate '\w+' --cm 'sub{uc}' --diff file
 
-Command **sdif** or **cdif** is should be useful to see the difference
+Command **sdif** or **cdif** is would be useful to see the difference
 visually.
 
     greple -Mupdate '\w+' --cm 'sub{uc}' --diff file | cdif
@@ -46,10 +45,14 @@ it for more practical use case.
 # OPTIONS
 
 - **--update**
+- **--update::update**
 
-    Update the target file by command output.  Without this option,
+    Update the target file by command output.  Entire file content is
+    produced and any color effects are canceled.  Without this option,
     **greple** behaves as normal operation, that means only matched lines
     are printed.
+
+    File is not touched as far as its content does not change.
 
 - **--with-backup**\[=_suffix_\]
 
@@ -57,6 +60,7 @@ it for more practical use case.
     given, it is used as a suffix string.
 
 - **--diff**
+- **--update::diff**
 
     Option **-diff** produce diff output of original and converted text.
 
@@ -72,11 +76,13 @@ it for more practical use case.
 
 # SEE ALSO
 
-[https://github.com/kaz-utashiro/greple-update](https://github.com/kaz-utashiro/greple-update)
+[App::Greple](https://metacpan.org/pod/App%3A%3AGreple), [https://github.com/kaz-utashiro/greple](https://github.com/kaz-utashiro/greple)
 
-[https://github.com/kaz-utashiro/greple](https://github.com/kaz-utashiro/greple)
+[App::Greple::update](https://metacpan.org/pod/App%3A%3AGreple%3A%3Aupdate), [https://github.com/kaz-utashiro/greple-update](https://github.com/kaz-utashiro/greple-update)
 
-[https://github.com/kaz-utashiro/greple-subst](https://github.com/kaz-utashiro/greple-subst)
+[App::Greple::subst](https://metacpan.org/pod/App%3A%3AGreple%3A%3Asubst), [https://github.com/kaz-utashiro/greple-subst](https://github.com/kaz-utashiro/greple-subst)
+
+[App::sdif](https://metacpan.org/pod/App%3A%3Asdif), [App::cdif](https://metacpan.org/pod/App%3A%3Acdif)
 
 # AUTHOR
 

@@ -29,14 +29,13 @@ uppercase.
     greple -Mupdate '\w+' --cm 'sub{uc}' --update file
 
 Above is a very simple example but you can implement arbitrarily
-complex convert function in conjunction with other various B<greple>
-options.
+complex function in conjunction with other various B<greple> options.
 
 You can check how the file will be edited by B<--diff> option.
 
     greple -Mupdate '\w+' --cm 'sub{uc}' --diff file
 
-Command B<sdif> or B<cdif> is should be useful to see the difference
+Command B<sdif> or B<cdif> is would be useful to see the difference
 visually.
 
     greple -Mupdate '\w+' --cm 'sub{uc}' --diff file | cdif
@@ -50,9 +49,14 @@ it for more practical use case.
 
 =item B<--update>
 
-Update the target file by command output.  Without this option,
+=item B<--update::update>
+
+Update the target file by command output.  Entire file content is
+produced and any color effects are canceled.  Without this option,
 B<greple> behaves as normal operation, that means only matched lines
 are printed.
+
+File is not touched as far as its content does not change.
 
 =item B<--with-backup>[=I<suffix>]
 
@@ -63,12 +67,16 @@ given, it is used as a suffix string.
 
 =item B<--create>
 
+=item B<--update::create>
+
 Create new file and write the result.  Suffix ".new" is appended to
 the original filename.
 
 =end comment
 
 =item B<--diff>
+
+=item B<--update::diff>
 
 Option B<-diff> produce diff output of original and converted text.
 
@@ -95,11 +103,13 @@ Specify diff command name used by B<--diff> option.  Default is "diff
 
 =head1 SEE ALSO
 
-L<https://github.com/kaz-utashiro/greple-update>
+L<App::Greple>, L<https://github.com/kaz-utashiro/greple>
 
-L<https://github.com/kaz-utashiro/greple>
+L<App::Greple::update>, L<https://github.com/kaz-utashiro/greple-update>
 
-L<https://github.com/kaz-utashiro/greple-subst>
+L<App::Greple::subst>, L<https://github.com/kaz-utashiro/greple-subst>
+
+L<App::sdif>, L<App::cdif>
 
 =head1 AUTHOR
 
@@ -284,9 +294,13 @@ option default \
 	--prologue update_initialize \
 	--begin    update_begin
 
-expand ++dump   --all --need 0 -h --color=never --no-newline
-option --diff   ++dump --of &update_diff
-option --create ++dump --begin update_divert --end update_file() --suffix=.new
-option --update ++dump --begin update_divert --end update_file(replace)
+expand ++dump --all --need 0 -h --color=never --no-newline
+option --update::diff   ++dump --of &update_diff
+option --update::create ++dump --begin update_divert --end update_file() --suffix=.new
+option --update::update ++dump --begin update_divert --end update_file(replace)
+
+option --diff   --update::diff
+option --create --update::create
+option --update --update::udpate
 
 #  LocalWords:  greple diff sdif cdif
