@@ -18,7 +18,7 @@ Options:
 
 =head1 VERSION
 
-Version 0.01
+Version 0.02
 
 =head1 DESCRIPTION
 
@@ -128,7 +128,7 @@ package App::Greple::update;
 use v5.14;
 use warnings;
 
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
 use utf8;
 use open IO => ':utf8';
