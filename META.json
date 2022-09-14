@@ -1,5 +1,5 @@
 {
-   "abstract" : "Greple module to update files",
+   "abstract" : "Greple module to update file content",
    "author" : [
       "Kazumasa Utashiro"
    ],

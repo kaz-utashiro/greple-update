@@ -2,7 +2,7 @@
 
 =head1 NAME
 
-update - Greple module to update files
+update - Greple module to update file content
 
 =head1 SYNOPSIS
 
@@ -10,11 +10,11 @@ greple -Mupdate
 
 Options:
 
-  --update
-  --with-backup
+  --update       replace file content
+  --with-backup  make backup files
 
-  --diff
-  --diffcmd command
+  --diff         produce diff output
+  --U#           specify unified diff context length
 
 =head1 VERSION
 
@@ -22,7 +22,7 @@ Version 0.02
 
 =head1 DESCRIPTION
 
-This B<greple> module substitute the target file contents by command
+This B<greple> module substitute the target file content by command
 output.  For example, next command replace all words in the file to
 uppercase.
 
@@ -35,13 +35,13 @@ You can check how the file will be edited by B<--diff> option.
 
     greple -Mupdate '\w+' --cm 'sub{uc}' --diff file
 
-Command B<sdif> or B<cdif> is would be useful to see the difference
+Command B<sdif> or B<cdif> would be useful to see the difference
 visually.
 
     greple -Mupdate '\w+' --cm 'sub{uc}' --diff file | cdif
 
-This module has spun off from L<App::Greple::subst> module.  Consult
-it for more practical use case.
+This module has been spun off from L<App::Greple::subst> module.
+Consult it for more practical use case.
 
 =head1 OPTIONS
 
@@ -60,8 +60,9 @@ File is not touched as far as its content does not change.
 
 =item B<--with-backup>[=I<suffix>]
 
-Backup original file with ".bak" suffix.  If optional parameter is
-given, it is used as a suffix string.
+Backup original file with C<.bak> suffix.  If optional parameter is
+given, it is used as a suffix string.  If the file exists, C<.bak_1>,
+C<.bak_2> ... are used.
 
 =begin comment
 
@@ -79,6 +80,7 @@ the original filename.
 =item B<--update::diff>
 
 Option B<-diff> produce diff output of original and converted text.
+Option B<-U#> can be used to specify context length.
 
 =begin comment
 
@@ -301,6 +303,6 @@ option --update::update ++dump --begin update_divert --end update_file(replace)
 
 option --diff   --update::diff
 option --create --update::create
-option --update --update::udpate
+option --update --update::update
 
 #  LocalWords:  greple diff sdif cdif
