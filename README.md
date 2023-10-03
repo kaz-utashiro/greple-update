@@ -17,7 +17,7 @@ Options:
 
 # VERSION
 
-Version 0.03
+Version 1.00
 
 # DESCRIPTION
 
