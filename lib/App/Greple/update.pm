@@ -14,7 +14,7 @@ Options:
   --with-backup  make backup files
 
   --diff         produce diff output
-  --U#           specify unified diff context length
+  -U#            specify unified diff context length
 
 =head1 VERSION
 
