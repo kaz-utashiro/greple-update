@@ -15,6 +15,8 @@ Options:
     --diff         produce diff output
     -U#            specify unified diff context length
 
+    --discard      simply discard the output
+
 # VERSION
 
 Version 1.00
@@ -59,6 +61,11 @@ Consult it for more practical use case.
     Backup original file with `.bak` suffix.  If optional parameter is
     given, it is used as a suffix string.  If the file exists, `.bak_1`,
     `.bak_2` ... are used.
+
+- **--discard**
+- **--update::discard**
+
+    Simply discard the command output without updating file.
 
 - **--diff**
 - **--update::diff**
