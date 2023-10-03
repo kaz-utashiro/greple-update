@@ -119,7 +119,7 @@ Kazumasa Utashiro
 
 =head1 LICENSE
 
-Copyright 2022 Kazumasa Utashiro.
+Copyright 2022-2023 Kazumasa Utashiro.
 
 This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself.
@@ -296,7 +296,7 @@ option default \
 	--prologue update_initialize \
 	--begin    update_begin
 
-expand ++dump --all --need 0 -h --color=never --no-newline
+expand ++dump --all --need 0 -h --color=never --no-newline --no-line-number
 option --update::diff   ++dump --of &update_diff
 option --update::create ++dump --begin update_divert --end update_file() --suffix=.new
 option --update::update ++dump --begin update_divert --end update_file(replace)
