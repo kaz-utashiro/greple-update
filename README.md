@@ -19,7 +19,7 @@ Options:
 
 # VERSION
 
-Version 1.01
+Version 1.02
 
 # DESCRIPTION
 
