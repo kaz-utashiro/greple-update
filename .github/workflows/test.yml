@@ -7,14 +7,14 @@ jobs:
       matrix:
         perl:
           [
-            "5.36",
+            "5.38",
             "5.28",
             "5.18",
             "5.14",
           ]
     name: Perl ${{ matrix.perl }}
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
         with:
           submodules: recursive
       - name: Setup perl
