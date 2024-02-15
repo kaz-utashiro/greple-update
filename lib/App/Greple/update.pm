@@ -60,6 +60,11 @@ are printed.
 
 File is not touched as far as its content does not change.
 
+The file is also not updated if the output is empty.  This is to
+prevent the contents of the file from being erased if none of the
+match strings are included.  If you want to intentionally empty a
+file, you need to think of another way.
+
 =item B<--with-backup>[=I<suffix>]
 
 Backup original file with C<.bak> suffix.  If optional parameter is
@@ -259,7 +264,7 @@ sub update_file {
     return if $arg{discard};
     $divert_buffer = decode 'utf8', $divert_buffer;
 
-    if ($_ eq $divert_buffer) {
+    if ($_ eq $divert_buffer or $divert_buffer eq '') {
 	return;
     }
 
@@ -305,7 +310,7 @@ option default \
 	--prologue update_initialize \
 	--begin    update_begin
 
-expand ++dump --all --need 0 -h --color=never --no-newline --no-line-number
+expand ++dump --all -h --color=never --no-newline --no-line-number
 option --update::diff    ++dump --of &update_diff
 option --update::create  ++dump --begin update_divert --end update_file() --update-suffix=.new
 option --update::update  ++dump --begin update_divert --end update_file(replace)
