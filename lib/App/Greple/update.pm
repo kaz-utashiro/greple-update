@@ -314,7 +314,7 @@ expand ++dump --all -h --color=never --no-newline --no-line-number
 option --update::diff    ++dump --of &update_diff
 option --update::create  ++dump --begin update_divert --end update_file() --update-suffix=.new
 option --update::update  ++dump --begin update_divert --end update_file(replace)
-option --update::discard ++dump --begin update_divert --end update_file(discard)
+option --update::discard        --begin update_divert --end update_file(discard)
 
 option --diff    --update::diff
 option --create  --update::create
