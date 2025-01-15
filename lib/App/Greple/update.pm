@@ -1,3 +1,4 @@
+
 =encoding utf8
 
 =head1 NAME
@@ -47,6 +48,12 @@ Consult it for more practical use case.
 
 =head1 OPTIONS
 
+There are two kinds of options for this module, such as C<--diff> and
+C<--update::diff>.  This is to avoid option name conflicts when used
+in combination with other modules.  If you are using this module from
+another module and want to use the C<--diff> option in it, call as
+C<--update::diff>.
+
 =over 7
 
 =item B<--update>
@@ -75,7 +82,9 @@ C<.bak_2> ... are used.
 
 =item B<--update::discard>
 
-Simply discard the command output without updating file.
+Simply discard the command output without updating file.  This option
+can be used when the output of the command is not needed and only side
+effects are expected.
 
 =begin comment
 
@@ -132,7 +141,7 @@ Kazumasa Utashiro
 
 =head1 LICENSE
 
-Copyright 2022-2024 Kazumasa Utashiro.
+Copyright 2022-2025 Kazumasa Utashiro.
 
 This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself.
@@ -264,9 +273,8 @@ sub update_file {
     return if $arg{discard};
     $divert_buffer = decode 'utf8', $divert_buffer;
 
-    if ($_ eq $divert_buffer or $divert_buffer eq '') {
-	return;
-    }
+    return if $divert_buffer eq $_;
+    return if $divert_buffer eq '';
 
     if (my $suffix = $opt_suffix) {
 	$newname = $filename . $suffix;
