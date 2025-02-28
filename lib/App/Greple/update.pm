@@ -29,19 +29,19 @@ This B<greple> module substitute the target file content by command
 output.  For example, next command replace all words in the file to
 uppercase.
 
-    greple -Mupdate '\w+' --cm 'sub{uc}' --update file
+    greple -Mupdate '\w+' --cs uc --update file
 
 Above is a very simple example but you can implement arbitrarily
 complex function in conjunction with other various B<greple> options.
 
 You can check how the file will be edited by B<--diff> option.
 
-    greple -Mupdate '\w+' --cm 'sub{uc}' --diff file
+    greple -Mupdate '\w+' --cs uc --diff file
 
 Command B<sdif> or B<cdif> would be useful to see the difference
 visually.
 
-    greple -Mupdate '\w+' --cm 'sub{uc}' --diff file | cdif
+    greple -Mupdate '\w+' --cs uc --diff file | cdif
 
 This module has been spun off from L<App::Greple::subst> module.
 Consult it for more practical use case.
