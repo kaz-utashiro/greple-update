@@ -240,7 +240,7 @@ sub update_diff {
     if ($fdpath and $remember_data) {
 	use IO::File;
 	use Fcntl;
-	$fh = new_tmpfile IO::File or die "new_tmpfile: $!\n";
+	$fh = IO::File->new_tmpfile or die "new_tmpfile: $!\n";
 	$fh->binmode(':encoding(utf8)');
 	my $fd = $fh->fcntl(F_GETFD, 0) or die "fcntl F_GETFD: $!\n";
 	$fh->fcntl(F_SETFD, $fd & ~FD_CLOEXEC) or die "fcntl F_SETFD: $!\n";
