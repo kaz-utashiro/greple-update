@@ -1,4 +1,4 @@
-[![Actions Status](https://github.com/kaz-utashiro/greple-update/workflows/test/badge.svg)](https://github.com/kaz-utashiro/greple-update/actions) [![MetaCPAN Release](https://badge.fury.io/pl/App-Greple-update.svg)](https://metacpan.org/release/App-Greple-update)
+[![Actions Status](https://github.com/kaz-utashiro/greple-update/actions/workflows/test.yml/badge.svg?branch=main)](https://github.com/kaz-utashiro/greple-update/actions?workflow=test) [![MetaCPAN Release](https://badge.fury.io/pl/App-Greple-update.svg)](https://metacpan.org/release/App-Greple-update)
 # NAME
 
 update - Greple module to update file content

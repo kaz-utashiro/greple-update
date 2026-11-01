@@ -209,21 +209,21 @@ sub update_begin {
 # define &divert_stdout and &recover_stdout
 #
 {
-    my $diverted = 0;
-    my $buffer;
+    my $divert;
+    my $bufref;
 
     sub divert_stdout {
-	$buffer = @_ ? shift : '/dev/null';
-	$diverted = $diverted == 0 ? 1 : return;
-	open  UPDATE_STDOUT, '>&', \*STDOUT or die "open: $!";
-	close STDOUT;
-	open  STDOUT, '>', $buffer or die "open: $!";
+	$bufref = shift;
+	return if $divert;
+	require IO::Divert;
+	$divert = IO::Divert->new(autoprint => 0);
     }
 
     sub recover_stdout {
-	$diverted = $diverted == 1 ? 0 : return;
-	close STDOUT;
-	open  STDOUT, '>&', \*UPDATE_STDOUT or die "open: $!";
+	$divert or return;
+	$$bufref = $divert->cancel->content;
+	undef $divert;
+	1;
     }
 }
 
