@@ -125,6 +125,19 @@ Specify diff command name used by B<--diff> option.  Default is "diff
 
     $ cpanm https://github.com/kaz-utashiro/greple-update.git
 
+=head1 LIMITATIONS
+
+Files are always written in UTF-8.  A file read with B<--icode> in
+another encoding, such as Shift-JIS, is converted to UTF-8, and
+B<--ocode> has no effect on the file.
+
+Binary data read with C<--icode=binary> is not preserved: bytes
+outside of ASCII are changed when the file is written.  A file that is
+not valid UTF-8 is skipped unless B<--icode> is given.
+
+Greple's B<--of> option does not take effect with B<--update>,
+B<--create> and B<--discard>: the file is written without the filter.
+
 =head1 SEE ALSO
 
 L<App::Greple>, L<https://github.com/kaz-utashiro/greple>

@@ -96,6 +96,19 @@ another module and want to use the `--diff` option in it, call as
 
     $ cpanm https://github.com/kaz-utashiro/greple-update.git
 
+# LIMITATIONS
+
+Files are always written in UTF-8.  A file read with **--icode** in
+another encoding, such as Shift-JIS, is converted to UTF-8, and
+**--ocode** has no effect on the file.
+
+Binary data read with `--icode=binary` is not preserved: bytes
+outside of ASCII are changed when the file is written.  A file that is
+not valid UTF-8 is skipped unless **--icode** is given.
+
+Greple's **--of** option does not take effect with **--update**,
+**--create** and **--discard**: the file is written without the filter.
+
 # SEE ALSO
 
 [App::Greple](https://metacpan.org/pod/App%3A%3AGreple), [https://github.com/kaz-utashiro/greple](https://github.com/kaz-utashiro/greple)
