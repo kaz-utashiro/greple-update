@@ -42,11 +42,12 @@
       },
       "runtime" : {
          "requires" : {
-            "App::Greple" : "9.08",
+            "App::Greple" : "10.05",
+            "Getopt::EX::Config" : "0",
             "IO::Divert" : "0.99",
             "List::Util" : "0",
             "Text::ParseWords" : "0",
-            "perl" : "v5.18.2"
+            "perl" : "v5.24.0"
          }
       },
       "test" : {
