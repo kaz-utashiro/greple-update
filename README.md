@@ -20,7 +20,7 @@ Options:
 
 # VERSION
 
-Version 1.04
+Version 1.05
 
 # DESCRIPTION
 

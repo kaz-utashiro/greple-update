@@ -22,7 +22,7 @@ Options:
 
 =head1 VERSION
 
-Version 1.04
+Version 1.05
 
 =head1 DESCRIPTION
 
@@ -203,7 +203,7 @@ use v5.24;
 use warnings;
 use experimental 'refaliasing';
 
-our $VERSION = '1.04';
+our $VERSION = '1.05';
 
 use utf8;
 use open IO => ':utf8';
